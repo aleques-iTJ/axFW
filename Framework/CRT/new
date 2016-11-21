@@ -1,0 +1,15 @@
+#pragma once
+
+
+
+void* operator new(size_t size, void* ptr)
+{
+	size = size;// Just shut the unreferenced warning up
+	return ptr;
+}
+
+void* operator new[](size_t size, void* ptr)
+{
+	size = size;
+	return ptr;
+}

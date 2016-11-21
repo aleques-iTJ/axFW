@@ -1,0 +1,38 @@
+#pragma pack_matrix(row_major)
+
+// Naive position vector just ends up merged
+cbuffer Matricies
+{
+	matrix proj;
+};
+
+//----------------------------------------------------------------
+
+struct VOut
+{
+	float4 pos : SV_POSITION;
+	float4 col : COLOR;
+	float2 tex : TEXCOORD0;	
+};
+
+VOut vsMain(float4 pos : POSITION, float4 col : COLOR, float2 tex: TEXCOORD0)
+{
+	VOut output;
+
+	pos.w		= 1.0f;
+	output.pos	= mul(pos, proj);
+	output.col	= col;
+	output.tex	= tex;
+
+	return output;
+}
+
+//----------------------------------------------------------------
+
+Texture2D		shaderTex;
+SamplerState	state;
+
+float4 psMain(VOut input) : SV_TARGET
+{
+	return shaderTex.Sample(state, input.tex) * input.col;
+}
