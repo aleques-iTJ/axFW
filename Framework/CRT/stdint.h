@@ -13,15 +13,9 @@ typedef unsigned long long	uint64_t;
 typedef long long			intmax_t;
 typedef unsigned long long	uintmax_t;
 
-typedef uintmax_t			size_t;
+typedef intmax_t			intptr_t;
+typedef uintmax_t			uintptr_t;
 
-typedef long				intptr_t;
-typedef unsigned long		uintptr_t;
-
-// Extension
-#if !defined(__cplusplus)
-	#define nullptr			0
-#endif
 
 #define INT8_MIN			-128
 #define INT16_MIN			-32768
