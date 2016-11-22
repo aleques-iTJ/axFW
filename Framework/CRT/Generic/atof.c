@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
+#include <ctype.h>
 
 
 // Converts an ASCII character to a float
@@ -22,7 +23,6 @@ double atof(const char* str)
 			{
 				// Can start building the left hand side of 
 				// the input since we've yet to hit a decimal
-
 				left		= (left * 10)  + (str[i] - '0');		
 				numToShift *= 10;							
 			}

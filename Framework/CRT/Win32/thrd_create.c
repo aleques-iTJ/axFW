@@ -4,7 +4,7 @@
 
 int	thrd_create(thrd_t* thread, thrd_start_t func, void* arg)
 {
-	thread->ptr = CreateThread(nullptr, 0, func, arg, 0, nullptr);
+	thread->ptr = CreateThread(NULL, 0, func, arg, 0, NULL);
 
-	return (thread->ptr != nullptr) ? thrd_success : thrd_error;
+	return (thread->ptr != NULL) ? thrd_success : thrd_error;
 }

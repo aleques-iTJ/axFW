@@ -4,7 +4,7 @@
 
 void* realloc(void* ptr, size_t size)
 {
-	if (ptr == nullptr)
+	if (ptr == NULL)
 	{
 		return HeapAlloc(GetProcessHeap(), 0, size);
 	}
