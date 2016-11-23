@@ -11,23 +11,11 @@ typedef struct mtx_t
 		void*		ptr;
 		uintptr_t	id;
 	};
-	
-	union
-	{
-		struct  
-		{
-			uint8_t isValid		: 1;
-			uint8_t isPlain		: 1;
-			uint8_t isRecursive : 1;
-			uint8_t isTimed		: 1;
-			uint8_t isLocked	: 1;
-		};
-
-		uint8_t flags;
-	};
 
 	unsigned char pf_Storage[46];
 }mtx_t;
+
+typedef mtx_t cnd_t;
 
 
 typedef struct thrd_t
@@ -75,6 +63,14 @@ AX_API int		mtx_init	(mtx_t* mutex, int type);
 AX_API int		mtx_lock	(mtx_t* mutex);
 AX_API int		mtx_unlock	(mtx_t* mutex);
 AX_API void		mtx_destroy	(mtx_t* mutex);
+
+AX_API int		cnd_init	(cnd_t* cond);
+AX_API int		cnd_signal	(cnd_t* cond);
+AX_API int		cnd_broadcast(cnd_t* cond);
+AX_API int		cnd_wait	(cnd_t* cond, mtx_t* mutex);
+AX_API void		cnd_destroy	(cnd_t* cond);
+// int cnd_timedwait(cnd_t* restrict cond, mtx_t* restrict mutex,	const struct timespec* restrict time_point);
+
 
 AX_API int		tss_create	(tss_t* tss_key, tss_dtor_t destructor);
 AX_API int		tss_set		(tss_t tss_id, void* val);
