@@ -5,9 +5,9 @@
 
 namespace internal
 {
-	template<typename T, bool B> struct Construct;
-	template<typename T, bool B> struct CopyConstruct;
-	template<typename T, bool B> struct Destruct;
+	template<typename T, bool isPOD> struct Construct;
+	template<typename T, bool isPOD> struct CopyConstruct;
+	template<typename T, bool isPOD> struct Destruct;
 }
 
 template<typename T>
