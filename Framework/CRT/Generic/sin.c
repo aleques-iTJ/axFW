@@ -1,6 +1,7 @@
 #include <math.h>
 
 
+#pragma function(sin)
 double sin(double radians)
 {
 	const double c1 =  1.00000000000000000000e+00;

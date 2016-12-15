@@ -2,6 +2,7 @@
 
 
 // Generic strcpy()
+#pragma function(strcpy)
 char* strcpy(char* dest, const char* src)
 {
 	size_t i = 0;

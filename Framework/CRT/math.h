@@ -16,3 +16,9 @@ AX_API double cos(double radians);
 AX_API double tan(double radians);
 
 AX_API double cot(double radians);
+
+#pragma intrinsic(sin)
+#pragma intrinsic(cos)
+#pragma intrinsic(tan)
+
+// #pragma intrinsic(cot)

@@ -2,6 +2,7 @@
 
 
 // Generic strlen()
+#pragma function(strlen)
 size_t strlen(const char* str)
 {
 	size_t length = 0;
